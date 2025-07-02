@@ -11,9 +11,14 @@ interface User {
 interface UserFilterProps {
   users: User[];
   selectedUserId?: number;
+  totalPosts?: number;
 }
 
-export default function UserFilter({ users, selectedUserId }: UserFilterProps) {
+export default function UserFilter({
+  users,
+  selectedUserId,
+  totalPosts,
+}: UserFilterProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -59,6 +64,11 @@ export default function UserFilter({ users, selectedUserId }: UserFilterProps) {
         >
           Clear
         </button>
+      </div>
+      <div>
+        <p className="text-xs text-right text-white">
+          {totalPosts} Total posts.
+        </p>
       </div>
     </div>
   );

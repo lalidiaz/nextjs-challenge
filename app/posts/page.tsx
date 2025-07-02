@@ -38,6 +38,8 @@ export default async function Posts({
     },
   });
 
+  const totalPosts = posts.length;
+
   return (
     <div className="relative mx-auto flex flex-col z-0 items-center justify-center py-16 px-6 sm:py-20 lg:pb-28 transition-all animate-in lg:px-12 max-w-7xl">
       <div className="py-6 px-6 text-center">
@@ -49,7 +51,11 @@ export default async function Posts({
         </p>
       </div>
 
-      <UserFilter users={users} selectedUserId={userId} />
+      <UserFilter
+        users={users}
+        selectedUserId={userId}
+        totalPosts={totalPosts}
+      />
 
       <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 sm:px-0 pt-20">
         {posts.map((post) => (

@@ -1,3 +1,8 @@
+"use client";
+import { useState, useTransition } from "react";
+import { deletePostAction } from "@/actions/post-actions";
+import Modal from "./modal";
+
 interface UserProps {
   id: number;
   name: string;
@@ -10,9 +15,33 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post }: { post: PostCardProps }) {
-  console.log("post", post);
+  const [open, setOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
+
+  const handleDelete = async () => {
+    startTransition(async () => {
+      const result = await deletePostAction(post.id);
+
+      if (result.success) {
+        console.log("Post deleted successfully");
+      } else {
+        console.error("Failed to delete post:", result.message);
+      }
+      setOpen(false);
+    });
+  };
+
   return (
     <>
+      {open && (
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          confirmDelete={handleDelete}
+          title="Delete Post"
+          message={`Are you sure you want to delete "${post.title}"? This action cannot be undone.`}
+        />
+      )}
       <div className="max-w-sm md:max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 md:p-6 flex flex-col justify-between min-h-72">
         <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800 dark:text-gray-100 min-h-[3rem]">
           {post.title}
@@ -26,11 +55,12 @@ export default function PostCard({ post }: { post: PostCardProps }) {
           </span>
 
           <button
+            onClick={() => setOpen(true)}
             type="button"
             className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
             aria-label="Delete"
           >
-            Delete
+            {isPending ? "Deleting..." : "Delete"}
           </button>
         </div>
       </div>
