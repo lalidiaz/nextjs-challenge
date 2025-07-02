@@ -30,7 +30,7 @@ export default function Home() {
                 <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <p>💬</p>
                 </div>
-                <h3 className="text-white font-medium mb-2">Quality Content</h3>
+                <h2 className="text-white font-medium mb-2">Quality Content</h2>
                 <p className="text-slate-400 text-sm">
                   Discover posts from authors
                 </p>
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
 
           <div className="pt-8 border-t border-slate-800">
-            <p className="text-slate-500 text-sm">
+            <p className="text-white text-sm">
               Built with Next.js, TypeScript, and Tailwind CSS
             </p>
           </div>

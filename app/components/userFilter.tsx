@@ -10,15 +10,10 @@ interface User {
 
 interface UserFilterProps {
   users: User[];
-  selectedUserId?: number;
-  totalPosts?: number;
+  selectedUserId?: string;
 }
 
-export default function UserFilter({
-  users,
-  selectedUserId,
-  totalPosts,
-}: UserFilterProps) {
+export default function UserFilter({ users, selectedUserId }: UserFilterProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -58,18 +53,15 @@ export default function UserFilter({
             </option>
           ))}
         </select>
+      </div>
 
+      <div className="flex items-right justify-end">
         <button
           onClick={() => handleUserChange("")}
-          className="w-full sm:w-auto px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md transition-colors duration-200 font-medium text-sm"
+          className="w-full sm:w-auto px-4 py-2 border border-gray-300 bg-teal-100 hover:bg-teal-200 dark:bg-green-700 dark:hover:bg-green-800 text-white dark:text-gray-300 rounded-md transition-colors duration-200 font-medium text-sm"
         >
           Clear
         </button>
-      </div>
-      <div>
-        <p className="text-xs text-right text-white">
-          {totalPosts} Total posts
-        </p>
       </div>
     </div>
   );

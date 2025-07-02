@@ -51,15 +51,16 @@ export default function PostCard({ post }: { post: PostCardProps }) {
         <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 flex-grow overflow-hidden text-ellipsis overflow-y-auto py-4 md:py-6">
           {post.body}
         </p>
+
         <div className="flex items-center justify-between mt-4">
           <span className="text-xs font-medium text-gray-500 dark:text-gray-400 min-h-[1.5rem]">
-            By: {post.user.name}
+            By {post.user.name}
           </span>
 
           <button
             onClick={() => setOpen(true)}
             type="button"
-            className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+            className="bg-red-700 text-white text-sm font-semibold px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
             aria-label="Delete"
           >
             {isPending ? "Deleting..." : "Delete"}

@@ -18,7 +18,7 @@ export const getCachedUsers = unstable_cache(
 
 export const getCachedUserById = unstable_cache(
   async (userId) =>
-    prisma.user.findUnique({
+    await prisma.user.findUnique({
       where: { id: parseInt(userId) },
     }),
   ["user"],
@@ -26,8 +26,8 @@ export const getCachedUserById = unstable_cache(
 );
 
 export const getCachedPosts = unstable_cache(
-  async (userId) =>
-    prisma.post.findMany({
+  async (userId: string | undefined = undefined) =>
+    await prisma.post.findMany({
       where: userId ? { userId: parseInt(userId) } : undefined,
       include: {
         user: {
