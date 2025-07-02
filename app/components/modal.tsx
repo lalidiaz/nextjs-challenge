@@ -20,11 +20,11 @@ export default function Modal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div
-        className="absolute inset-0 bg-black bg-opacity-50"
+        className="absolute inset-0 bg-gray bg-opacity-100 backdrop-blur-md"
         onClick={onClose}
       />
 
-      <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md mx-4">
+      <div className="relative border border-zinc-300 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md mx-4">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
           {title}
         </h3>

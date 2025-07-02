@@ -1,37 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nextjs Challenge ✨👩🏽‍💻
 
-## Getting Started
+This app is built using Next.js. It renders posts at `/posts/`, where it is possible to view all posts, view posts by specific author, and delete posts.
 
-First, run the development server:
+The app comes with features and changes that make a better user experience, with the whole app functioning anywhere with poor or unstable internet.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Folder Structure
+
+```
+.
+├── actions/
+│   └── post-actions.ts
+├── app/
+│   ├── components/
+│   │   ├── /modal.tsx
+│   │   ├── /postCard.tsx
+│   │   └── /userFilter.tsx
+│   ├── posts/
+│   │   └── /page.tsx
+│   ├── globals/
+│   ├── layout/
+│   └── page.tsx
+├── lib/
+│   ├── prisma-utils.ts
+│   ├── prisma.ts
+│   └── queries.ts
+├── prisma/
+│   ├── /schema.prisma
+│   └── /seed.ts
+├── .env
+└── assumptions.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js >= 18.x
+- npm (v9+) or yarn
+- A modern web browser
+- A `.env` file with required environment variables at the root of the project.
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+```
+git clone git@github.com:lalidiaz/nextjs-challenge.git
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<!-- Prisma -->
+npx prisma init --datasource-provider sqlite
+npx prisma db push
+npx prisma studio
+npx prisma db seed
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+npm run dev
+```
 
-## Deploy on Vercel
+### Database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project uses Prisma with SQLite. No separate installation is needed for SQLite (it's file-based and Prisma handles it automatically). The database file will be created automatically when you run the setup commands.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# nextjs-challenge
+### Assumptions
+
+All assumptions made during development can be found in the assumptions.md file at the root of the project.

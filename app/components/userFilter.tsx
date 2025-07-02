@@ -1,11 +1,11 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
+import * as React from "react";
 
 interface User {
   id: number;
   name: string;
-  username: string;
 }
 
 interface UserFilterProps {
@@ -23,17 +23,18 @@ export default function UserFilter({
   const router = useRouter();
 
   const handleUserChange = (userId: string) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
+
     if (userId) {
       params.set("userId", userId);
     } else {
       params.delete("userId");
     }
-    router.push(`/posts?${params.toString()}`);
+    router.push(`/posts?${params}`);
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto sm:max-w-md lg:max-w-lg bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 space-y-4">
+    <div className="w-full max-w-sm mx-auto sm:max-w-md lg:max-w-lg bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 space-y-4 border border-zinc-600">
       <div className="space-y-2">
         <label
           htmlFor="user-filter"
