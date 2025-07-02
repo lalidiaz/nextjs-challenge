@@ -2,28 +2,21 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { withPrismaResponse } from "@/lib/prisma-utils";
 
 export async function deletePostAction(id: number) {
-  try {
-    await prisma.post.delete({
-      where: {
-        id: id,
-      },
-    });
+  const result = await withPrismaResponse(
+    () =>
+      prisma.post.delete({
+        where: { id },
+      }),
+    "deleting post",
+    "Post deleted successfully"
+  );
 
+  if (result.success) {
     revalidatePath("/posts");
-
-    return {
-      success: true,
-      message: "Post deleted successfully",
-    };
-  } catch (error) {
-    console.error("Error deleting post:", error);
-
-    return {
-      success: false,
-      message: "Failed to delete post",
-      error: error instanceof Error ? error.message : "Unknown error",
-    };
   }
+
+  return result;
 }

@@ -2,6 +2,7 @@
 import { useState, useTransition } from "react";
 import { deletePostAction } from "@/actions/post-actions";
 import Modal from "./modal";
+import { toast } from "react-toastify";
 
 interface UserProps {
   id: number;
@@ -23,11 +24,12 @@ export default function PostCard({ post }: { post: PostCardProps }) {
       const result = await deletePostAction(post.id);
 
       if (result.success) {
-        console.log("Post deleted successfully");
+        toast.success(result.message);
+        setOpen(false);
       } else {
-        console.error("Failed to delete post:", result.message);
+        toast.error(result.message);
+        setOpen(false);
       }
-      setOpen(false);
     });
   };
 

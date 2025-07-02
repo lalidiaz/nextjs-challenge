@@ -67,7 +67,7 @@ export default function UserFilter({
       </div>
       <div>
         <p className="text-xs text-right text-white">
-          {totalPosts} Total posts.
+          {totalPosts} Total posts
         </p>
       </div>
     </div>
