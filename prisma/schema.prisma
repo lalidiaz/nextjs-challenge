@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+ 
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  name     String
+  username String  @unique
+  email    String  @unique
+
+  // Optional relationships
+  address   Address?
+  company   Company?
+  
+  // Optional fields
+  phone    String?
+  website  String?
+  
+  // One-to-many relationship
+  post Post[]
+  
+  @@map("users")
+}
+
+model Address {
+  id      Int    @id @default(autoincrement())
+  street  String
+  suite   String?  
+  city    String
+  zipcode String
+  geo     Geo?     
+  
+  // Foreign key relationship to User
+  userId  Int    @unique
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("addresses")
+}
+
+model Geo {
+  id        Int     @id @default(autoincrement())
+  lat       String
+  lng       String
+
+  // Foreign key relationship to Address
+  addressId Int     @unique
+  address   Address  @relation(fields: [addressId], references: [id], onDelete: Cascade)
+
+  @@map("geo")
+}
+
+model Company {
+  id          Int    @id @default(autoincrement())
+  name        String
+  catchPhrase String
+  bs          String
+  
+  // Foreign key relationship to User
+  userId      Int    @unique
+  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("companies")
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  body      String
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id])
+
+  // Would be nice to have these two fields in case we want to show the date in each post
+  // createdAt DateTime @default(now())
+  // updatedAt DateTime @updatedAt
+}
