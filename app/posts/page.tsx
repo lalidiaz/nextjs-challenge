@@ -8,7 +8,7 @@ import {
 import PostHeader from "../components/postHeader";
 import PostsGrid from "../components/postsGrid";
 import { determinePageState } from "@/lib/state-logic";
-import EmptyState from "../components/EmptyState";
+import EmptyState from "../components/emptyState";
 
 export default async function Posts({
   searchParams,
