@@ -51,6 +51,7 @@ export default async function Posts({
       "fetching posts",
       []
     );
+
     totalPosts = posts.length;
   }
 
