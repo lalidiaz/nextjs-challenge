@@ -47,10 +47,9 @@ git clone git@github.com:lalidiaz/nextjs-challenge.git
 npm install
 
 <!-- Prisma -->
-npx prisma init --datasource-provider sqlite
 npx prisma db push
-npx prisma studio
 npx prisma db seed
+npx prisma studio
 
 <!-- Create PWA -->
 npm run build
@@ -58,7 +57,7 @@ npm run build
 npm run dev
 ```
 
-## PWA - Progressive Web App 
+## PWA - Progressive Web App
 
 To access the PWA please follow these steps:
 
