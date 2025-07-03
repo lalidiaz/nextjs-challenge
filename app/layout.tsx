@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 dark:bg-gray-900 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-gray-900 antialiased`}
       >
         {children}
         <ToastContainer position="top-right" />

@@ -45,16 +45,16 @@ export default function PostCard({ post }: { post: PostCardProps }) {
           message={`Are you sure you want to delete "${post.title}"? This action cannot be undone.`}
         />
       )}
-      <div className="max-w-sm md:max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 md:p-6 flex flex-col justify-between min-h-72 border border-zinc-600">
-        <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800 dark:text-gray-100 min-h-[3rem]">
+      <div className="max-w-sm md:max-w-md mx-auto bg-gray-800 rounded-lg shadow-md p-4 md:p-6 flex flex-col justify-between min-h-72 border border-zinc-600">
+        <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-100 min-h-[3rem]">
           {post.title}
         </h2>
-        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 flex-grow overflow-hidden text-ellipsis overflow-y-auto py-4 md:py-6">
+        <p className="text-sm md:text-base text-gray-300 flex-grow overflow-hidden text-ellipsis overflow-y-auto py-4 md:py-6">
           {post.body}
         </p>
 
         <div className="flex items-center justify-between mt-4">
-          <span className="text-xs font-medium text-gray-500 dark:text-gray-400 min-h-[1.5rem]">
+          <span className="text-xs font-medium text-gray-400 min-h-[1.5rem]">
             By {post.user.name}
           </span>
 

@@ -18,7 +18,7 @@ export default function Home() {
           <div className="pt-4">
             <Link
               href="/posts"
-              className="inline-flex items-center gap-2 dark:bg-gray-800 hover:bg-slate-600 text-white font-medium px-6 py-3 md:px-8 md:py-4 rounded-lg text-base md:text-md transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-pink-500 hover:bg-pink-900 text-white font-medium px-6 py-3 md:px-8 md:py-4 rounded-lg text-base md:text-md transition-all duration-200 hover:scale-105"
             >
               View All Posts
             </Link>
@@ -27,7 +27,7 @@ export default function Home() {
           <div className="pt-8 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
               <div className="text-center">
-                <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 cursor-default">
                   <p>💬</p>
                 </div>
                 <h2 className="text-white font-medium mb-2">Quality Content</h2>
@@ -37,7 +37,7 @@ export default function Home() {
               </div>
 
               <div className="text-center">
-                <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 cursor-default">
                   <p>🔍</p>
                 </div>
                 <h3 className="text-white font-medium mb-2">Easy Filtering</h3>
@@ -45,7 +45,7 @@ export default function Home() {
               </div>
 
               <div className="text-center">
-                <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 cursor-default">
                   <p>🚀</p>
                 </div>
                 <h3 className="text-white font-medium mb-2">Modern Design</h3>

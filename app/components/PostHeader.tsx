@@ -4,7 +4,7 @@ export default function PostHeader() {
       <h1 className="text-2xl lg:text-4xl font-bold lg:tracking-tight text-white">
         Posts
       </h1>
-      <p className="mt-2 text-gray-600 dark:text-gray-300 text-lg">
+      <p className="mt-2 text-gray-300 text-lg">
         Explore the latest blog posts and updates from our authors.
       </p>
     </div>
