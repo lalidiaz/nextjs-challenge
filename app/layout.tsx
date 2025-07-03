@@ -14,8 +14,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nextjs Challenge",
-  description: "Blog posts challenge - Laura Diaz",
+  title: "Blog Nextjs App",
+  description:
+    "Blog built in Nextjs, view blog posts by author and delete blog posts.",
+  generator: "Next.js",
+  manifest: "/manifest.json",
+  keywords: ["nextjs", "next15", "pwa", "next-pwa"],
+  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
+  viewport:
+    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
+  icons: [
+    { rel: "apple-touch-icon", url: "icon-192x192.png" },
+    { rel: "icon", url: "icon-192x192.png" },
+  ],
 };
 
 export default function RootLayout({

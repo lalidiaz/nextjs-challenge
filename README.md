@@ -52,8 +52,18 @@ npx prisma db push
 npx prisma studio
 npx prisma db seed
 
+<!-- Create PWA -->
+npm run build
+
 npm run dev
 ```
+
+## PWA - Progressive Web App 
+
+To access the PWA please follow these steps:
+
+- Step 1: After building the app, a small download icon will appear in your browser's navigation bar. Click it to install the app.
+- Step 2: Navigate to your download folder and open installed app.
 
 ### Database
 
