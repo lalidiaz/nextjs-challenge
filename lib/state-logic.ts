@@ -9,5 +9,5 @@ export function determinePageState(
   if (!userId) return "no-filter";
   if (!userById) return "user-not-found";
   if (!posts || posts.length === 0) return "no-posts";
-  return "posts";
+  return null;
 }

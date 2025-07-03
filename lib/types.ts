@@ -10,4 +10,4 @@ export interface PostCardProps {
   user: UserProps;
 }
 
-export type PageState = "posts" | "user-not-found" | "no-posts" | "no-filter";
+export type PageState = "user-not-found" | "no-posts" | "no-filter" | null;

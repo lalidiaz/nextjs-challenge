@@ -3,7 +3,7 @@ import { prisma } from "./prisma";
 
 export const getCachedUsers = unstable_cache(
   async () =>
-    prisma.user.findMany({
+    await prisma.user.findMany({
       select: {
         id: true,
         name: true,
