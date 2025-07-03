@@ -2,6 +2,7 @@
 
 import { useSearchParams, useRouter } from "next/navigation";
 import * as React from "react";
+import Button from "./Button";
 
 interface User {
   id: number;
@@ -56,12 +57,13 @@ export default function UserFilter({ users, selectedUserId }: UserFilterProps) {
       </div>
 
       <div className="flex items-right justify-end">
-        <button
+        <Button
+          type="button"
+          label="Clear"
           onClick={() => handleUserChange("")}
-          className="w-full sm:w-auto px-4 py-2 border border-gray-300 bg-teal-100 hover:bg-teal-200 dark:bg-green-700 dark:hover:bg-green-800 text-white dark:text-gray-300 rounded-md transition-colors duration-200 font-medium text-sm"
-        >
-          Clear
-        </button>
+          className="w-full sm:w-auto border border-gray-300 bg-teal-100 hover:bg-teal-200 dark:bg-green-700 dark:hover:bg-green-800 text-white dark:text-gray-300 rounded-md"
+          ariaLabel="Clear"
+        />
       </div>
     </div>
   );

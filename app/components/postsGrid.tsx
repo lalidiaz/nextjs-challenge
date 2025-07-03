@@ -1,4 +1,4 @@
-import PostCard from "./postCard";
+import PostCard from "./PostCard";
 import { PostCardProps } from "@/lib/types";
 
 export default function PostsGrid({

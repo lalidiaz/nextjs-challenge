@@ -1,5 +1,7 @@
 "use client";
 
+import Button from "./Button";
+
 interface ModalProps {
   open: boolean;
   onClose?: () => void;
@@ -18,31 +20,45 @@ export default function Modal({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dialog_label"
+      aria-describedby="dialog_desc"
+    >
       <div
         className="absolute inset-0 bg-gray bg-opacity-100 backdrop-blur-md"
         onClick={onClose}
       />
 
       <div className="relative border border-zinc-300 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md mx-4">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+        <h3
+          className="text-lg font-semibold text-gray-900 dark:text-white mb-2"
+          id="dialog_label"
+        >
           {title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-6">{message}</p>
+        <p className="text-gray-600 dark:text-gray-300 mb-6" id="dialog_desc">
+          {message}
+        </p>
 
         <div className="flex justify-end space-x-3">
-          <button
+          <Button
             onClick={onClose}
-            className="px-4 py-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-          >
-            Cancel
-          </button>
-          <button
+            type="button"
+            className="text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600"
+            ariaLabel="Cancel"
+            label="Cancel"
+          />
+
+          <Button
             onClick={confirmDelete}
-            className="px-4 py-2 bg-red-700 text-white rounded-md hover:bg-red-600 transition-colors"
-          >
-            Delete
-          </button>
+            type="button"
+            className="bg-red-700 text-white hover:bg-red-600"
+            ariaLabel="Confirm-delete"
+            label="Delete"
+          />
         </div>
       </div>
     </div>

@@ -1,8 +1,9 @@
 "use client";
 import { useState, useTransition } from "react";
 import { deletePostAction } from "@/actions/post-actions";
-import Modal from "./modal";
+import Modal from "./Modal";
 import { toast } from "react-toastify";
+import Button from "./Button";
 
 interface UserProps {
   id: number;
@@ -57,14 +58,13 @@ export default function PostCard({ post }: { post: PostCardProps }) {
             By {post.user.name}
           </span>
 
-          <button
+          <Button
             onClick={() => setOpen(true)}
             type="button"
-            className="bg-red-700 text-white text-sm font-semibold px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
-            aria-label="Delete"
-          >
-            {isPending ? "Deleting..." : "Delete"}
-          </button>
+            className="bg-red-700 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+            label={isPending ? "Deleting..." : "Delete"}
+            ariaLabel="Delete"
+          />
         </div>
       </div>
     </>

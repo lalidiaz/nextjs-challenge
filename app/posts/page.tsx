@@ -1,14 +1,14 @@
-import UserFilter from "../components/userFilter";
+import UserFilter from "../components/UserFilter";
 import { withPrismaErrorHandling } from "@/lib/prisma-utils";
 import {
   getCachedPosts,
   getCachedUserById,
   getCachedUsers,
 } from "@/lib/queries";
-import PostHeader from "../components/postHeader";
-import PostsGrid from "../components/postsGrid";
+import PostHeader from "../components/PostHeader";
+import PostsGrid from "../components/PostsGrid";
 import { determinePageState } from "@/lib/state-logic";
-import EmptyState from "../components/emptyState";
+import EmptyState from "../components/EmptyState";
 
 export default async function Posts({
   searchParams,
@@ -57,21 +57,18 @@ export default async function Posts({
 
   const pageState = determinePageState(userId, userById, posts);
 
+  const renderEmptyState =
+    pageState === "user-not-found" ? (
+      <EmptyState type="user-not-found" />
+    ) : pageState === "no-posts" ? (
+      <EmptyState type="no-posts" />
+    ) : null;
+
   return (
     <div className="relative mx-auto flex flex-col z-0 items-center justify-center py-16 px-6 sm:py-20 lg:pb-28 transition-all animate-in lg:px-12 max-w-7xl">
       <PostHeader />
-
       {users.length > 0 && <UserFilter users={users} selectedUserId={userId} />}
-
-      {posts && pageState === "posts" ? (
-        <PostsGrid posts={posts} totalPosts={totalPosts} />
-      ) : pageState === "user-not-found" ? (
-        <EmptyState type="user-not-found" />
-      ) : pageState === "no-posts" ? (
-        <EmptyState type="no-posts" />
-      ) : (
-        <PostsGrid posts={posts} totalPosts={totalPosts} />
-      )}
+      {renderEmptyState || <PostsGrid posts={posts} totalPosts={totalPosts} />}
     </div>
   );
 }
