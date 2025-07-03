@@ -42,20 +42,39 @@ The app comes with features and changes that make a better user experience, with
 
 ### Installation
 
+*Step 1:* Clone the repository
 ```
 git clone git@github.com:lalidiaz/nextjs-challenge.git
-npm install
+```
 
-<!-- Prisma -->
+*Step 2*: Install Dependencies
+```
+npm install
+```
+
+*Step 3*: Create prisma tables and populate with data from `seed.ts`
+```
 npx prisma db push
 npx prisma db seed
+```
+
+*Step 4*: Open Prisma Studio
+```
 npx prisma studio
+```
+Prisma Studio is up on `http://localhost:5555`
 
-<!-- Create PWA -->
+*Step 5*: Build the application to create the PWA, two files will be created in `/public` directory based on the `manifest.json` placed in `/public`
+```
 npm run build
+```
 
+*Step 6*: Start the application in Dev mode
+```
 npm run dev
 ```
+The application will be running at `http://localhost:3000`
+
 
 ## PWA - Progressive Web App
 
@@ -63,6 +82,7 @@ To access the PWA please follow these steps:
 
 - Step 1: After building the app, a small download icon will appear in your browser's navigation bar. Click it to install the app.
 - Step 2: Navigate to your download folder and open installed app.
+- Step 3: Disconnect your device from the internet and test out the PWA application functionality, still works even if you are offline!
 
 ### Database
 
