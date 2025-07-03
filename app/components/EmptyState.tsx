@@ -10,8 +10,8 @@ export default function EmptyState({
       description: "User not found in our database",
     },
     "no-posts": {
-      title: "No posts found for this user",
-      description: "This user hasn't published any posts yet.",
+      title: "No posts found",
+      description: "There are no posts yet.",
     },
   };
   return (

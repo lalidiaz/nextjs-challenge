@@ -6,8 +6,9 @@ export function determinePageState(
   userById?: User | null,
   posts?: Post[] | null
 ): PageState {
+  if (!posts || posts.length === 0) return "no-posts";
   if (!userId) return "no-filter";
   if (!userById) return "user-not-found";
-  if (!posts || posts.length === 0) return "no-posts";
+
   return null;
 }
